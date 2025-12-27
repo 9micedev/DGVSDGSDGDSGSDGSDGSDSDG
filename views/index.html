@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fakewanted.lol - Empower Your Digital Presence</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script defer src="/js/antiInspect.js"></script>
+  <style>
+    :root {
+      --bg: #090909;
+      --accent: #f97316;
+      --accent-2: #fb923c;
+      --text: #f6f6f6;
+      --muted: #b8b8b8;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+    }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(249,115,22,0.08), transparent 30%),
+                  radial-gradient(circle at 80% 10%, rgba(251,146,60,0.08), transparent 28%),
+                  var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+    .container { width: min(1200px, 100% - 32px); margin: 0 auto; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: -0.01em; font-size: 22px; }
+    .pill { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--muted); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 18px; border-radius: 14px; border: 1px solid transparent; font-weight: 700; cursor: pointer; text-decoration: none; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0c0c0c; box-shadow: 0 16px 40px rgba(249,115,22,0.25); animation: pulse 3s ease-in-out infinite; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 46px rgba(249,115,22,0.32); }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); background: rgba(255,255,255,0.04); }
+    .hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 26px; align-items: center; padding: 30px 0 20px; }
+    .headline { font-size: clamp(36px, 6vw, 64px); line-height: 1.04; margin: 14px 0 10px; }
+    .lead { color: var(--muted); font-size: 17px; line-height: 1.6; max-width: 640px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 18px; box-shadow: 0 18px 48px rgba(0,0,0,0.45); }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 14px; }
+    .feature-card { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 14px; padding: 14px; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; }
+    .feature-card:hover { transform: translateY(-5px) scale(1.01); border-color: rgba(249,115,22,0.5); box-shadow: 0 12px 34px rgba(249,115,22,0.2); }
+    .muted { color: var(--muted); }
+    .section { margin: 52px 0; }
+    .section h3 { margin: 0 0 8px; font-size: 24px; }
+    .cta-row { background: linear-gradient(135deg, rgba(249,115,22,0.16), rgba(255,255,255,0.02)); border: 1px solid rgba(249,115,22,0.25); border-radius: 18px; padding: 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; position: relative; overflow: hidden; }
+    .cta-row::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 50%, rgba(249,115,22,0.12), transparent 35%); opacity: 0.9; pointer-events: none; }
+    .footer { padding: 40px 0 32px; color: var(--muted); text-align: center; border-top: 1px solid var(--border); margin-top: 60px; }
+    .orb { position: absolute; filter: blur(90px); opacity: 0.35; z-index: -1; border-radius: 999px; animation: float 10s ease-in-out infinite; }
+    .orb.orange { background: #f97316; width: 240px; height: 240px; top: 8%; left: 10%; }
+    .orb.orange-2 { background: #fb923c; width: 220px; height: 220px; top: 30%; right: 6%; animation-delay: 1.8s; }
+    .orb.purple { background: #7c3aed; width: 180px; height: 180px; bottom: 6%; left: 20%; animation-delay: 0.8s; }
+    .stack { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+    .parallax-wrap { perspective: 1000px; }
+    .parallax-item { transform-style: preserve-3d; transition: transform 0.15s ease, box-shadow 0.15s ease; will-change: transform; }
+    @keyframes float { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-12px) scale(1.02); } }
+    @keyframes pulse { 0%,100% { box-shadow: 0 16px 40px rgba(249,115,22,0.25); transform: translateY(0); } 50% { box-shadow: 0 16px 50px rgba(249,115,22,0.35); transform: translateY(-1px); } }
+    @media (max-width: 768px) { .nav { flex-direction: column; gap: 12px; align-items: flex-start; } .cta-row { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+  <div class="orb orange"></div>
+  <div class="orb orange-2"></div>
+  <div class="orb purple"></div>
+
+  <div class="container">
+    <div class="nav">
+      <div class="brand">
+        <span class="pill">FAKEWANTED.LOL</span>
+        <span>Fakecrime Platform</span>
+      </div>
+      <div class="stack">
+        <a class="btn btn-ghost" href="/u/demo">View demo</a>
+        <a class="btn btn-ghost" href="/login">Sign in</a>
+        <a class="btn btn-primary" href="/dashboard">Dashboard</a>
+      </div>
+    </div>
+
+    <div class="hero parallax-wrap">
+      <div class="parallax-item" data-depth="0.2">
+        <div class="pill reveal" style="display:inline-flex; align-items:center; gap:8px;"><i class="fa-solid fa-gem" style="color:var(--accent);"></i> Modern bio + hosting</div>
+        <h1 class="headline reveal">Empower Your Digital Presence Easy & Fast 💎</h1>
+        <p class="lead reveal">Fakecrime is your essential platform for creating modern, customizable bio-pages, paired with a flexible, fast and secure file hosting to meet all your digital needs.</p>
+        <div class="stack reveal" style="margin:18px 0 12px;">
+          <a class="btn btn-primary" href="/dashboard">Dashboard</a>
+          <a class="btn btn-ghost" href="/register">Start for free</a>
+        </div>
+        <div class="stack reveal">
+          <span class="pill"><i class="fa-regular fa-circle-check" style="color:var(--accent);"></i> Secure hosting</span>
+          <span class="pill"><i class="fa-solid fa-bolt" style="color:var(--accent);"></i> Fast setup</span>
+          <span class="pill"><i class="fa-solid fa-paintbrush" style="color:var(--accent);"></i> Deep customization</span>
+        </div>
+      </div>
+      <div class="card reveal parallax-item" data-depth="0.18" style="border-color: rgba(249,115,22,0.35); background: rgba(255,255,255,0.05);">
+        <div class="stack" style="justify-content: space-between; align-items:center;">
+          <div class="pill">Features & Rewards</div>
+          <div style="color:var(--accent); font-weight:700;">Live preview</div>
+        </div>
+        <h3 class="reveal" style="margin:12px 0 8px;">Simple & Intuitive 👋</h3>
+        <p class="muted" style="line-height:1.6;">Our user-friendly interface ensures that anyone, regardless of technical expertise, can effortlessly build & customize their bio-pages easily. Showcase your creativity, experiences & interests in minutes.</p>
+        <div class="feature-grid" style="margin-top:12px;">
+          <div class="feature-card reveal parallax-item" data-depth="0.1">
+            <strong>Custom layouts</strong>
+            <div class="muted">Card / Left / Center, gradients, blur, opacity.</div>
+          </div>
+          <div class="feature-card reveal parallax-item" data-depth="0.12">
+            <strong>Secure hosting</strong>
+            <div class="muted">Protected uploads, size limits, rate-limits, anti-spam.</div>
+          </div>
+          <div class="feature-card reveal parallax-item" data-depth="0.14">
+            <strong>Badges & rewards</strong>
+            <div class="muted">Admin-issued badges, premium days, promo codes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <h3 class="reveal">What you get</h3>
+      <div class="feature-grid parallax-wrap">
+        <div class="feature-card reveal parallax-item" data-depth="0.08">
+          <div class="pill">Dashboards</div>
+          <strong>File hosting + assets</strong>
+          <div class="muted">Upload avatars, banners, favicons, link images, custom cursors with strict limits and auto-cleanup.</div>
+        </div>
+        <div class="feature-card reveal parallax-item" data-depth="0.1">
+          <div class="pill">Customization</div>
+          <strong>Animations & effects</strong>
+          <div class="muted">Enter overlays, sparkles, parallax, cursor styles, SEO, and polished themes.</div>
+        </div>
+        <div class="feature-card reveal parallax-item" data-depth="0.12">
+          <div class="pill">Security</div>
+          <strong>Anti-spam & admin guard</strong>
+          <div class="muted">Captcha, rate limits, emergency lock, session control, ban/freeze, protected admin.</div>
+        </div>
+        <div class="feature-card reveal parallax-item" data-depth="0.14">
+          <div class="pill">Community</div>
+          <strong>Join the Community 🚀</strong>
+          <div class="muted">Share your bio-pages, discover inspiring profiles & connect with like-minded people.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="cta-row parallax-item" data-depth="0.12">
+        <div>
+          <div class="pill" style="margin-bottom:6px;">Get started</div>
+          <h3 style="margin:0;">Ready to Start Crafting Your Digital Story? 🪁</h3>
+          <div class="muted">Set up your bio-page and secure hosting in minutes.</div>
+        </div>
+        <a class="btn btn-primary" href="/register">Claim your bio</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      fakewanted.lol 2025 — All Rights reserved
+    </footer>
+  </div>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold: 0.2 });
+    revealEls.forEach((el) => io.observe(el));
+
+    // Parallax 3D for highlighted blocks (max 20% feel)
+    const parallaxItems = document.querySelectorAll('.parallax-item');
+    const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+    document.addEventListener('mousemove', (e) => {
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const dx = (e.clientX - cx) / cx;
+      const dy = (e.clientY - cy) / cy;
+      parallaxItems.forEach((el) => {
+        const depth = Number(el.dataset.depth || 0.1);
+        const moveX = clamp(dx * 20 * depth, -20, 20); // up to ~20px
+        const moveY = clamp(dy * 20 * depth, -20, 20);
+        const tiltX = clamp(-dy * 6 * depth, -6, 6);
+        const tiltY = clamp(dx * 6 * depth, -6, 6);
+        el.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+      });
+    });
+    document.addEventListener('mouseleave', () => {
+      parallaxItems.forEach((el) => el.style.transform = '');
+    });
+  </script>
+</body>
+</html>
